@@ -22,5 +22,3 @@ x.n3 = int(input())
 x.n4 = int(input())
 x.final = int(input())
 print(x.calc_media())
-    
-             
