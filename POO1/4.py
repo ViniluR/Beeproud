@@ -18,4 +18,3 @@ x = Entrada()
 x.dia = input('Dia da sessão (Ex: "Ter"): ')
 x.hora, x.minuto = map(int, input('Horário da sessão (Ex: "12h30"): ').split('h'))
 print(x.calc())
-    
