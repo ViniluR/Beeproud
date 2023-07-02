@@ -28,20 +28,21 @@ class Paciente():
     return self.__nasci
   def Idade(self):
     delta = datetime.datetime.today() - self.__nasci
-    return delta
-    # anos = dias // 365
-    # meses = (dias % 365) // 30
-    # return f'{anos} anos e {meses} meses'
+    dias = delta.days
+    anos = dias // 360
+    meses = dias % 360 //30
+    return f'Idade do paciente: {anos} ano(s) e {meses} mes(es)'
   def __str__(self):
-    return f'Nome: {self.__nome} | CPF: {self.__cpf} | Telefone: {self.__tele} | Data de nascimento: {self.__nasci}'
+    nasci_texto = self.__nasci.strftime('%d/%m/%y')
+    return f'Nome: {self.__nome}\nCPF: {self.__cpf}\nTelefone: {self.__tele}\nData de nascimento: {nasci_texto}'
 
 class UI:
   @staticmethod
   def main():
-    nome = input('Informe seu nome: ')
-    cpf = input('Informe seu CPF: ')
-    telefone = input('Informe seu telefone: ')
-    nascimento = list(map(int, input('Informe sua data de nascimento (DD/MM/AAAA): ').split('/')))
+    nome = input('Informe seu nome:\n')
+    cpf = input('Informe seu CPF:\n')
+    telefone = input('Informe seu telefone:\n')
+    nascimento = list(map(int, input('Informe sua data de nascimento (DD/MM/AAAA):\n').split('/')))
     x = Paciente(nome, cpf, telefone, nascimento)
     print(x.Idade())
     print(str(x))
